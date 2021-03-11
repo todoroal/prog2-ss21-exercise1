@@ -6,7 +6,7 @@ public class PasswordTest {
 
     @Test
     void testCheckPassword_Larger8() {
-        Password pw = new Password("aRA34%wersa");
+        Password pw = new Password("aRA4%wersa");
         boolean actual = pw.checkPassword(pw.getPassword());
         assertEquals(true, actual);
     }
@@ -58,5 +58,13 @@ public class PasswordTest {
         boolean actual = pw.checkPassword(pw.getPassword());
         assertFalse(actual);
     }
+    @Test
+    void testCheckPassword_NoNumbers() {
+        Password pw = new Password("aWrt%rtz%&/dfg");
+        boolean actual = pw.checkPassword(pw.getPassword());
+        assertFalse(actual);
+    }
+
+
 
 }

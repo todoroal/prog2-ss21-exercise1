@@ -20,16 +20,19 @@ public class Password {
             char[] list = pw.toCharArray();
 
             //Minimum 1 lower and 1 upper Case
-            int upperCase=0, lowCase=0;
+            boolean upperCase=false, lowCase=false, numbers=false;
             for(int i=0; i<list.length; i++){
                 if(list[i]>=65 && list[i]<=90){
-                    upperCase++;
+                    upperCase=true;
                 }
                 if(list[i]>=97 && list[i]<=122){
-                    lowCase++;
+                    lowCase=true;
+                }
+                if(list[i]>=48 && list[i]<=57){
+                    numbers = true;
                 }
             }
-            if(upperCase==0 || lowCase==0){
+            if(!upperCase || !lowCase || !numbers){
                 return false;
             }
             else return true;
