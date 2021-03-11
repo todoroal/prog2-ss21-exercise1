@@ -16,26 +16,43 @@ public class Password {
 
         //Length between 8 -25 ???
         if(pw.length()<=25 && pw.length()>=8){
-            //Allgemein praktisch
+
             char[] list = pw.toCharArray();
 
             //Minimum 1 lower and 1 upper Case
-            boolean upperCase=false, lowCase=false, numbers=false;
+            int upperCase=0, lowCase=0, numbers=0, specialChar=0, continuousNumbs=0, sameNubs=0;
+
             for(int i=0; i<list.length; i++){
                 if(list[i]>=65 && list[i]<=90){
-                    upperCase=true;
+                    upperCase++;
                 }
                 if(list[i]>=97 && list[i]<=122){
-                    lowCase=true;
+                    lowCase++;
                 }
                 if(list[i]>=48 && list[i]<=57){
-                    numbers = true;
+                    numbers++;
                 }
+                if(list[i] == '(' || list[i] == ')' || list[i] == '$' || list[i] == '?' || list[i] == '!' || list[i] == '%' || list[i] == '/' || list[i] == '@'){
+                    specialChar++;
+                }
+
+
+                /*if(i>3){
+                    if(list[i]==list[i-1]+1 && list[i]==list[i-2]+2){
+                        continuousNumbs = true;
+                    }
+                    if(list[i]==list[i-1] && list[i]==list[i-2] && list[i]==list[i-3]){
+                        sameNubs = true;
+                    }
+                }*/
             }
-            if(!upperCase || !lowCase || !numbers){
-                return false;
+            if(upperCase>0 && lowCase>0 && numbers>0 && specialChar>0/* || !continuousNumbs || !sameNubs*/){
+                if(upperCase+lowCase+numbers+specialChar == list.length){
+                    return true;
+                }
+                else return false;
             }
-            else return true;
+            else return false;
         }
         else return false;
     }
