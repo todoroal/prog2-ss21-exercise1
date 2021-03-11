@@ -36,10 +36,12 @@ public class Password {
                 if(list[i] == '(' || list[i] == ')' || list[i] == '$' || list[i] == '?' || list[i] == '!' || list[i] == '%' || list[i] == '/' || list[i] == '@'){
                     specialChar++;
                 }
-                if(i>1){
+                if(i>2){
                     if(list[i]==list[i-1]+1 && list[i]==list[i-2]+2){
                         continuousNumbs = true;
                     }
+                }
+                if(i>3){
                     if(list[i]==list[i-1] && list[i]==list[i-2] && list[i]==list[i-3]){
                         sameNubs = true;
                     }
