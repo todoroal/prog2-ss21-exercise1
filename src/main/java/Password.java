@@ -24,13 +24,13 @@ public class Password {
             boolean continuousNumbs=false, sameNubs=false;
 
             for(int i=0; i<list.length; i++){
-                if(list[i]>=65 && list[i]<=90){
+                if(list[i]>='A' && list[i]<='Z'){
                     upperCase++;
                 }
-                if(list[i]>=97 && list[i]<=122){
+                if(list[i]>='a' && list[i]<='z'){
                     lowCase++;
                 }
-                if(list[i]>=48 && list[i]<=57){
+                if(list[i]>='0' && list[i]<='9'){
                     numbers++;
                 }
                 if(list[i] == '(' || list[i] == ')' || list[i] == '$' || list[i] == '?' || list[i] == '!' || list[i] == '%' || list[i] == '/' || list[i] == '@'){
