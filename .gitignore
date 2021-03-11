@@ -207,3 +207,4 @@ TrafficLight.iml
 .idea/.gitignore
 .idea/description.html
 .idea/project-template.xml
+src/main/java/Main.java
