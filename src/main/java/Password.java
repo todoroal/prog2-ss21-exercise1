@@ -20,7 +20,8 @@ public class Password {
             char[] list = pw.toCharArray();
 
             //Minimum 1 lower and 1 upper Case
-            int upperCase=0, lowCase=0, numbers=0, specialChar=0, continuousNumbs=0, sameNubs=0;
+            int upperCase=0, lowCase=0, numbers=0, specialChar=0;
+            boolean continuousNumbs=false, sameNubs=false;
 
             for(int i=0; i<list.length; i++){
                 if(list[i]>=65 && list[i]<=90){
@@ -35,18 +36,16 @@ public class Password {
                 if(list[i] == '(' || list[i] == ')' || list[i] == '$' || list[i] == '?' || list[i] == '!' || list[i] == '%' || list[i] == '/' || list[i] == '@'){
                     specialChar++;
                 }
-
-
-                /*if(i>3){
+                if(i>1){
                     if(list[i]==list[i-1]+1 && list[i]==list[i-2]+2){
                         continuousNumbs = true;
                     }
                     if(list[i]==list[i-1] && list[i]==list[i-2] && list[i]==list[i-3]){
                         sameNubs = true;
                     }
-                }*/
+                }
             }
-            if(upperCase>0 && lowCase>0 && numbers>0 && specialChar>0/* || !continuousNumbs || !sameNubs*/){
+            if(upperCase>0 && lowCase>0 && numbers>0 && specialChar>0 && !continuousNumbs && !sameNubs){
                 if(upperCase+lowCase+numbers+specialChar == list.length){
                     return true;
                 }
@@ -56,7 +55,6 @@ public class Password {
         }
         else return false;
     }
-
 
     public String getPassword() {
         return Password;
